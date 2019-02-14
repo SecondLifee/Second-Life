@@ -17,14 +17,12 @@
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
 {% endblock %}
 {% block body %}
-    <div class="loader" id="page-loader">
-        <div class="loading-wrapper"></div>
-    </div>
-    {% include 'components/categorie.html.twig' %}
-
+<div class="loader" id="page-loader">
+    <div class="loading-wrapper"></div>
+</div>
+{% include 'components/categorie.html.twig' %}
 
     {% block content '' %}
-
 
     {% include 'components/footer.html.twig' %}
 

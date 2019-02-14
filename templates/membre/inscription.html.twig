@@ -1,0 +1,20 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}
+    Inscription
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-12">
+                <h3>Inscription</h3>
+                {{ form(form, {attr:{novalidate: 'novalidate' }}) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+

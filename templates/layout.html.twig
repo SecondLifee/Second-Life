@@ -1,29 +1,31 @@
 {% extends "base.html.twig" %}
 
 {% block stylesheets %}
-<link rel="icon" href="img/favicon.png" type="image/png">
-<title>Woodrox Furniture</title>
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-<link rel="stylesheet" href="{{ asset('vendors/linericon/style.css') }}">
-<link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
-<link rel="stylesheet" href="{{ asset('vendors/owl-carousel/owl.carousel.min.css') }}">
-<link rel="stylesheet" href="{{ asset('vendors/lightbox/simpleLightbox.css') }}">
-<link rel="stylesheet" href="{{ asset ('vendors/animate-css/animate.css') }}">
-<link rel="stylesheet" href="{{ asset ('vendors/animate-css/animate.css') }}">
-<link rel="stylesheet" href="{{ asset ('vendors/flaticon/flaticon.css') }}">
-<!-- main css -->
-<link rel="stylesheet" href="{{ asset('css/style.css') }}">
-<link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+    <link rel="icon" href="{{ asset('img/favicon.png') }}" type="image/png">
+    <title>Woodrox Furniture</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/linericon/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/owl-carousel/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendors/lightbox/simpleLightbox.css') }}">
+    <link rel="stylesheet" href="{{ asset ('vendors/animate-css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset ('vendors/animate-css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset ('vendors/flaticon/flaticon.css') }}">
+    <!-- main css -->
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
 {% endblock %}
 {% block body %}
-<div class="loader" id="page-loader">
-    <div class="loading-wrapper"></div>
-</div>
-{% include 'components/categorie.html.twig' %}
-    {% include 'components/jumbo.html.twig' %}
+    <div class="loader" id="page-loader">
+        <div class="loading-wrapper"></div>
+    </div>
+    {% include 'components/categorie.html.twig' %}
+
+
     {% block content '' %}
-    {% include 'components/logo.html.twig' %}
+
+
     {% include 'components/footer.html.twig' %}
 
 

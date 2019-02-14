@@ -1,0 +1,32 @@
+{% extends "layout.html.twig" %}
+
+    {% block title %}
+        Connexion
+    {% endblock %}
+
+    {% block content %}
+        <hr>
+   <div class="container">
+        <div class="row">
+            <div class="col-xs-6 col-xs-push-3">
+                <h3>Connexion</h3>
+
+                {% if error %}
+                    <div class="alert alert-danger">
+                        {{ error.messageKey|trans(error.messageData, 'security') }}
+                    </div>
+                {% endif %}
+
+                {% for message in app.flashes('notice') %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+
+                {{ form(form, {attr:{novalidate: 'novalidate' }}) }}
+            </div>
+        </div>
+   </div>
+        <hr>
+
+    {% endblock %}

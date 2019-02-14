@@ -38,7 +38,7 @@ class Membre
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="datetime")
      */
     private $dateInscription;
 
@@ -131,12 +131,12 @@ class Membre
         return $this;
     }
 
-    public function getDateInscription(): ?string
+    public function getDateInscription(): ?\DateTimeInterface
     {
         return $this->dateInscription;
     }
 
-    public function setDateInscription(string $dateInscription): self
+    public function setDateInscription(\DateTimeInterface $dateInscription): self
     {
         $this->dateInscription = $dateInscription;
 

@@ -59,6 +59,11 @@ class Annonce
 
     private $membre;
 
+    public function __construct()
+    {
+        $this->dateCreation = new \DateTime();
+    }
+
     /**
      * @return mixed
      */
@@ -133,12 +138,12 @@ class Annonce
         return $this;
     }
 
-    public function getFeaturedImage(): ?string
+    public function getFeaturedImage()
     {
         return $this->featuredImage;
     }
 
-    public function setFeaturedImage(string $featuredImage): self
+    public function setFeaturedImage($featuredImage): self
     {
         $this->featuredImage = $featuredImage;
 

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\form;
+namespace App\Form;
 
 
 use App\Entity\Annonce;

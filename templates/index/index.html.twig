@@ -1,0 +1,27 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}
+    Accueil
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="row">
+    <!--colleft-->
+    <div class="col-md-8 col-sm-12">
+        <div class="box-caption">
+        </div>
+        <section class="owl-carousel owl-spotlight">
+                {% include 'components/spotlight.html.twig' %}
+        </section>
+
+        <section class="spotlight-thumbs">
+            <div class="row grid">
+            <div class="grid-sizer"></div>
+            </div>
+        </section>
+    </div>
+    {% endblock %}
+

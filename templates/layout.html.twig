@@ -33,14 +33,14 @@
 <div class="loader" id="page-loader">
     <div class="loading-wrapper"></div>
 </div>
+{% include 'components/categorie.html.twig' %}
 
-    {% include 'components/categorie.html.twig' %}
     {% block content '' %}
 
     {% include 'components/footer.html.twig' %}
+
+
 {% endblock %}
-
-
 
 {% block javascripts %}
     <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>

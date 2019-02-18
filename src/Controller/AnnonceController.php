@@ -70,7 +70,7 @@ class AnnonceController extends AbstractController
             $em->flush();
 
             # Redirection
-            return $this->redirectToRoute('connexion_connexion', [
+            return $this->redirectToRoute('front_annonce', [
                 'categorie' => $annonce->getCategorie()->getSlug(),
                 'slug' => $annonce->getSlug(),
                 'id' => $annonce->getId()

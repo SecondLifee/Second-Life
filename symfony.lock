@@ -125,6 +125,15 @@
     "symfony/debug": {
         "version": "v4.2.3"
     },
+    "symfony/debug-bundle": {
+        "version": "4.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.1",
+            "ref": "f8863cbad2f2e58c4b65fa1eac892ab189971bea"
+        }
+    },
     "symfony/dependency-injection": {
         "version": "v4.2.3"
     },
@@ -197,6 +206,9 @@
     "symfony/polyfill-mbstring": {
         "version": "v1.10.0"
     },
+    "symfony/polyfill-php72": {
+        "version": "v1.10.0"
+    },
     "symfony/process": {
         "version": "v4.2.3"
     },
@@ -247,6 +259,9 @@
             "version": "4.1",
             "ref": "0cdc982334f45d554957a6167e030482795bf9d7"
         }
+    },
+    "symfony/var-dumper": {
+        "version": "v4.2.3"
     },
     "symfony/var-exporter": {
         "version": "v4.2.3"

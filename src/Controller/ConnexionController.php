@@ -10,8 +10,8 @@ namespace App\Controller;
 
 
 use App\Form\ConnecFormType;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class ConnexionController extends AbstractController
@@ -19,6 +19,7 @@ class ConnexionController extends AbstractController
     /**
      * @Route("/connexion", name="connexion_connexion")
      * @param AuthenticationUtils $authenticationUtils
+     * @return \Symfony\Component\HttpFoundation\Response
      */
 
     public function connexion(AuthenticationUtils $authenticationUtils)
@@ -34,4 +35,13 @@ class ConnexionController extends AbstractController
             'error' => $error
         ]);
     }
+
+    /**
+     * @Route("/deconnexion.html",
+     *     name="security_deconnexion")
+     */
+    public function deconnexion()
+    {
+    }
+
 }

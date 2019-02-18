@@ -57,7 +57,15 @@ class Annonce
      * @ORM\JoinColumn(nullable=false)
      */
 
+
     private $membre;
+
+    /**
+     * @ORM\Column(type="boolean")
+     *
+     */
+
+    private $proposition;
 
     public function __construct()
     {
@@ -170,6 +178,18 @@ class Annonce
     public function setDateCreation(\DateTimeInterface $dateCreation): self
     {
         $this->dateCreation = $dateCreation;
+
+        return $this;
+    }
+
+    public function getProposition(): ?bool
+    {
+        return $this->proposition;
+    }
+
+    public function setProposition(bool $proposition): self
+    {
+        $this->proposition = $proposition;
 
         return $this;
     }

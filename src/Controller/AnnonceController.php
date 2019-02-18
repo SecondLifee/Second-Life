@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Annonce;
 use App\Entity\Membre;
-use App\form\AnnonceFormType;
+use App\Form\AnnonceFormType;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -70,7 +70,7 @@ class AnnonceController extends AbstractController
             $em->flush();
 
             # Redirection
-            return $this->redirectToRoute('front_annonce', [
+            return $this->redirectToRoute('connexion_connexion', [
                 'categorie' => $annonce->getCategorie()->getSlug(),
                 'slug' => $annonce->getSlug(),
                 'id' => $annonce->getId()

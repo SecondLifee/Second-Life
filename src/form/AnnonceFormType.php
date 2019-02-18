@@ -9,6 +9,7 @@ use App\Entity\Categorie;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -21,6 +22,14 @@ class AnnonceFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array  $options)
     {
         $builder
+             ->add('categorie', EntityType::class, [
+                'class' => Categorie::class,
+                'choice_label' => 'nom',
+                'expanded' => false,
+                'multiple' => false,
+                'label' => false
+            ])
+
             ->add('titre', TextType::class, [
                 'required' => true,
                 'label' => "Titre de l'Annonce",
@@ -28,30 +37,35 @@ class AnnonceFormType extends AbstractType
                     'placeholder' =>"Titre de l'Annnonce"
                 ]
             ])
-            ->add('categorie', EntityType::class, [
-                'class' => Categorie::class,
-                'choice_label' => 'nom',
-                'expanded' => false,
-                'multiple' => false,
-                'label' => false
+
+            ->add('proposition', ChoiceType::class, [
+                'label' => 'Ceci est à négocier',
+                'choices' => [
+                    'Donation' => true,
+                    'Prix' => true,
+                    'Negocier' => true
+                ]
             ])
+
             ->add('contenu', TextareaType::class, [
-                'label' => false
+                'label' => 'Penser à indiquer votre prix de vente'
             ])
+
             ->add('featuredImage', FileType::class, [
                 'attr' => [
                     'class' => 'dropify'
                 ]
             ])
             ->add('spotlight', CheckboxType::class, [
-                'required' => false,
-                'attr' => [
+                    'attr' => [
                     'data-toogle' => 'toogle',
                     'data-on' => 'oui',
                     'data-off' => 'non'
 
                 ]
             ])
+
+
             ->add('submit', SubmitType::class, [
                 'label' => 'Publier mon Annonce'
             ])

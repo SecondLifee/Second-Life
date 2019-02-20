@@ -1,8 +1,19 @@
 {% extends "base.html.twig" %}
 
+{% set categories = categorie_service.findAll() %}
+{% set annonces =  annonce_service.findAll() %}
+
 {% block stylesheets %}
     <link rel="icon" href="{{ asset('img/favicon.png') }}" type="image/png">
-    <title>Woodrox Furniture</title>
+    <link rel="stylesheet" href="{{ asset('https://use.fontawesome.com/releases/v5.7.2/css/all.css') }}">
+    <link rel="stylesheet" href="{{ asset('https://fonts.googleapis.com/css?family=Zilla+Slab') }}">
+    <link rel="stylesheet" href="{{ asset('https://fonts.googleapis.com/css?family=Bungee+Shade') }}">
+    <link rel="stylesheet" href="{{ asset('https://fonts.googleapis.com/css?family=Space+Mono') }}">
+    <link rel="stylesheet" href="{{ asset('https://use.fontawesome.com/releases/v5.7.2/css/all.css') }}" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('https://fonts.googleapis.com/css?family=Comfortaa') }}">
+
+
+    <title>Test</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('vendors/linericon/style.css') }}">
@@ -15,6 +26,15 @@
     <!-- main css -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" />
+
+    <style>
+        #mapid { height: 200px; width: 600px; position: relative; top: 40px; left: 40px;}
+    </style>
+
+
+
+
 {% endblock %}
 {% block body %}
 <div class="loader" id="page-loader">
@@ -43,4 +63,21 @@
     <script src="{{ asset('vendors/counter-up/jquery.waypoints.min.js') }}"></script>
     <script src="{{ asset('vendors/counter-up/jquery.counterup.min.js') }}"></script>
     <script src="{{ asset('js/mail-script.js') }}"></script>
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+
+    <script>
+        var carte = L.map('mapid').setView([48.990181, 1.912178], 10);
+
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(carte);
+
+        var influence = L.circle([48.990181, 1.912178], 5000, {
+            'color': '#FF7F00',
+            'fill': true,
+            'fillColor': '#FFFF00',
+            'fillOpacity': 0.2,
+        }).addTo(carte);
+
+    </script>
 {% endblock %}

@@ -66,7 +66,7 @@ class Membre implements UserInterface
      * @ORM\OneToMany(targetEntity="App\Entity\Annonce",mappedBy="membre")
      */
 
-    private $annonce;
+    private $annonces;
 
     public function __construct()
     {

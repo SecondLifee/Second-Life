@@ -1,9 +1,25 @@
 {% extends "layout.html.twig" %}
-{% block content %}
 
-
-
-
-
-
+{% block title %}
+    {{ categorie.nom }}
 {% endblock %}
+
+{% block content %}
+<hr color="#FABA00">
+        {% for annonce in annonces %}
+            <div class="container">
+            <div style="background-color: #FABA00;" class="jumbotron">
+                <div class="col-md-6">
+                    <img style="max-height: 300px;border-style: groove" alt="{{ annonce.titre }}"
+                         src="{{ asset('images/product/' ~ annonce.featuredImage) }}">
+
+                </div>
+                <div class="col-md-6">
+                        
+
+                </div>
+            </div>
+            </div>
+        {% endfor %}
+{% endblock %}
+

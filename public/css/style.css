@@ -49,12 +49,14 @@ Table of Content:
   margin: 0px;
   padding: 0px; }
 
-a {
+a   {
   text-decoration: none;
   transition: all 0.3s ease-in-out; }
   a:hover, a:focus {
     text-decoration: none;
-    outline: none; }
+    outline: none;
+   background-color: #FABA01;
+  background-size: 30px;}
 
 .row.m0 {
   margin: 0px; }
@@ -295,7 +297,6 @@ button:focus {
 ============================================================================================ */
 .home_banner_area {
   z-index: 1;
-  background: url(../img/banner/home-banner.jpg) no-repeat scroll center center;
   background-size: cover; }
   .home_banner_area .banner_inner {
     width: 100%; }

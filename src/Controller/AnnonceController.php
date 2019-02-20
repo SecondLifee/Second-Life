@@ -27,7 +27,7 @@ class AnnonceController extends AbstractController
 
         $membre = $this->getDoctrine()
             ->getRepository(Membre::class)
-            ->find(1);
+            ->findAll();
 
         $annonce = new Annonce();
 
@@ -58,7 +58,7 @@ class AnnonceController extends AbstractController
             $em->persist($annonce);
             $em->flush();
 
-            return $this->redirectToRoute('front_annonce', [
+            return $this->redirectToRoute('connexion_connexion', [
                 'categorie' => $annonce->getCategorie()->getSlug(),
                 'slug' => $annonce->getSlug(),
                 'id' => $annonce->getId()
@@ -76,7 +76,7 @@ class AnnonceController extends AbstractController
      * @Route("/editer-une-annonce/{id<\d+>}", name="annonce-edit")
      * @param $id
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
     public function editAnnonce($id, Request $request)
     {

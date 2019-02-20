@@ -1,0 +1,139 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+
+<style>
+
+    .container {
+        position: relative;
+
+        text-align: center;
+
+    }
+
+    #nom{
+
+        padding: 10%;
+        font-size: 75%;
+        text-align: center;
+    }
+
+    .card{
+
+        position: center;
+        width: 100%;
+        margin-bottom: 30%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+
+    }
+
+
+    .image {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #008CBA;
+        overflow: hidden;
+        width: 100%;
+        height: 0;
+        transition: .5s ease;
+    }
+
+    #un:hover .overlay {
+        height: 100%;
+    }
+    #deux:hover .overlay {
+        height: 100%;
+    }
+    #trois:hover .overlay {
+        height: 100%;
+    }
+
+    .text {
+        color: white;
+        font-size: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+</style>
+
+
+<div class="container">
+    <div class="row">
+
+            <div class="col-4">
+                <div class="card">
+                    <div id="nom">
+                    <h2>Mustapha</h2>
+                    </div>
+                    <div  id="un">
+                        <img src="{{ asset ('img/cours.jpeg') }}" alt="Avatar" class="image">
+                        <div class="overlay">
+                            <div class="text"><h4><b>Mustapha EL MIR</b></h4>
+                                <p>Front End / Back End</p>
+                                <p>Email : elmir.moustapha@wanadoo.fr</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-4">
+                <div class="card">
+                    <div id="nom">
+                        <h2>Guillaume</h2>
+                    </div>
+                    <div id="deux">
+                        <img src="{{ asset ('img/cours.jpeg') }}" alt="Avatar" class="image">
+                        <div class="overlay">
+                            <div class="text"><h4><b>Guillaume LEGOUT</b></h4>
+                                <p>Front End / Back End</p>
+                                <p>Email : guillaumelegout@gmail.com  </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="card">
+                    <div id="nom">
+                        <h2>Maxime</h2>
+                    </div>
+                    <div id="trois">
+                        <img src="{{ asset ('img/cours.jpeg') }}" alt="Avatar" class="image">
+                        <div class="overlay">
+                            <div class="text"><h4><b>Maxime DESHAYES</b></h4>
+                                <p>Front End / Back End</p>
+                                <p>Email : maximedeshayes78.fr</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+</div>
+
+
+{% endblock %}
+
+
+
+
+
+

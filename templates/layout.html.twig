@@ -1,5 +1,8 @@
 {% extends "base.html.twig" %}
 
+{% set categories = categorie_service.findAll() %}
+{% set annonces =  annonce_service.findAll() %}
+
 {% block stylesheets %}
     <link rel="icon" href="{{ asset('img/favicon.png') }}" type="image/png">
     <link rel="stylesheet" href="{{ asset('https://use.fontawesome.com/releases/v5.7.2/css/all.css') }}">
@@ -33,14 +36,14 @@
 <div class="loader" id="page-loader">
     <div class="loading-wrapper"></div>
 </div>
+{% include 'components/categorie.html.twig' %}
 
-    {% include 'components/categorie.html.twig' %}
     {% block content '' %}
 
     {% include 'components/footer.html.twig' %}
+
+
 {% endblock %}
-
-
 
 {% block javascripts %}
     <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
@@ -56,4 +59,6 @@
     <script src="{{ asset('vendors/counter-up/jquery.waypoints.min.js') }}"></script>
     <script src="{{ asset('vendors/counter-up/jquery.counterup.min.js') }}"></script>
     <script src="{{ asset('js/mail-script.js') }}"></script>
+
+
 {% endblock %}

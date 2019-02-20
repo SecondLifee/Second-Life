@@ -24,52 +24,40 @@ class AnnonceController extends AbstractController
      */
     public function newAnnonce(Request $request)
     {
-        # Récuperation d'un membre
-        # Ici doctrine me retourne un objet Membre
+
         $membre = $this->getDoctrine()
             ->getRepository(Membre::class)
-            ->find(1);
+            ->findAll();
 
-        # Création d'une Nouvelle Annonce
         $annonce = new Annonce();
 
-        # je déclare l'auteur de l'Annonce
         $annonce->setMembre($membre);
 
-        # création du formulaire
         $form = $this->createForm(AnnonceFormType::class, $annonce);
 
-        # traitement du formulaire
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
 
-            # Traitement de l'upload de l'image
             /** @var UploadedFile $featuredImage */
             $featuredImage = $annonce->getFeaturedImage();
 
-            # Renommer le nom du fichier
             $fileName = $this->slugify($annonce->getTitre())
                 . '.' . $featuredImage->guessExtension();
 
-            # Deplacer le fichier vers son répertoire final
             $featuredImage->move(
                 $this->getParameter('annonces_assets_dir'),
                 $fileName
             );
 
-            # Mise à jour de l'image
             $annonce->setFeaturedImage($fileName);
 
-             #Mise à jour du Slug
             $annonce->setSlug($this->slugify($annonce->getTitre()));
 
-            # Sauvegarde en BDD
             $em = $this->getDoctrine()->getManager();
             $em->persist($annonce);
             $em->flush();
 
-            # Redirection
             return $this->redirectToRoute('connexion_connexion', [
                 'categorie' => $annonce->getCategorie()->getSlug(),
                 'slug' => $annonce->getSlug(),
@@ -78,7 +66,6 @@ class AnnonceController extends AbstractController
 
         }
 
-        # Passage à la vue du formulaire
         return $this->render('front/form.html.twig', [
             'form' => $form->createView()
         ]);
@@ -89,19 +76,16 @@ class AnnonceController extends AbstractController
      * @Route("/editer-une-annonce/{id<\d+>}", name="annonce-edit")
      * @param $id
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
     public function editAnnonce($id, Request $request)
     {
-        # Récupérer l'Article en BDD
         $annonce = $this->getDoctrine()
             ->getRepository(Annonce::class)
             ->find($id);
 
-        # Récupérer la featuredImage
         $featuredImage = $annonce->getFeaturedImage();
 
-        # Création du Formulaire
         $annonce->setFeaturedImage(
             new File($this->getParameter('annonces_assets_dir')
                 . '/' . $annonce->getFeaturedImage())
@@ -114,21 +98,17 @@ class AnnonceController extends AbstractController
 
             if ($annonce->getFeaturedImage() != null) {
 
-                # Traitement de l'upload de l'image
                 /** @var UploadedFile $featuredImage */
                 $featuredImage = $annonce->getFeaturedImage();
 
-                # Renommer le nom du fichier
                 $fileName = $this->slugify($annonce->getTitre())
                     . '.' . $featuredImage->guessExtension();
 
-                # Deplacer le fichier vers son répertoire final
                 $featuredImage->move(
                     $this->getParameter('annonces_assets_dir'),
                     $fileName
                 );
 
-                # Mise à jour de l'image
                 $annonce->setFeaturedImage($fileName);
 
             } else {
@@ -137,10 +117,8 @@ class AnnonceController extends AbstractController
 
             }
 
-            # Mise à jour du Slug
             $annonce->setSlug($this->slugify($annonce->getTitre()));
 
-            # Sauvegarde en BDD
             $em = $this->getDoctrine()->getManager();
             $em->flush();
 

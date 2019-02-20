@@ -1,9 +1,36 @@
 {% extends "layout.html.twig" %}
+
+{% block title %}
+    {{ categorie.nom }}
+{% endblock %}
+
 {% block content %}
+    <h1 style="text-align: center;font-size: 55px;font-family: 'Space Mono', monospace;letter-spacing: 7px;color: black">
+        Catégorie Mobilier</h1>
+    <hr size="30" color="#FABA00">
+    {% for annonce in annonces %}
+        <div style="margin-top: 60px;" class="container">
+            <div style="background-color: #FABA00" class="jumbotron">
+                <h1 style="text-align: center;color: black;font-family: 'Comfortaa', cursive;"
+                    class="display-4">{{ annonce.titre }}</h1>
+                <hr size="30">
+                <img style="max-height: 300px;border-style: solid; display: block;margin-top: 25px;margin-right: auto;margin-left: auto"
+                     alt="{{ annonce.titre }}"
+                     src="{{ asset('images/product/' ~ annonce.featuredImage) }}" class="align-content-lg-center">
+                <hr>
+                <h3 style="text-align: center;color: white;">Déscriptif de l'annonce</h3>
+                <div style="text-align: center;font-family: 'Comfortaa', cursive;color: black;margin-top: 40px;">{{ annonce.contenu | raw }}</div>
+                <hr class="my-4">
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <div>
+                    <a style="margin-right: 10px;background-color: grey;border-color: grey;font-size: 18px;" class="btn btn-primary btn-lg" href="#" role="button"></a>
+                {% else %}
+                    <a style="margin-right: 10px;background-color: grey;border-color: grey;font-size: 18px;"  class="btn btn-primary btn-lg" href="#" role="button">Connectez-vous</a>
+                    <a style="margin-right: 10px;background-color: grey;border-color: grey;font-size: 18px;"  class="btn btn-primary btn-lg" href="#" role="button">Inscrivez-vous</a>
 
-
-
-
-
-
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
 {% endblock %}

@@ -1,6 +1,6 @@
 {% extends "layout.html.twig" %}
 {% block content %}
-
+    {{ dump(annonces) }}
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
@@ -10,7 +10,7 @@
 
             </div>
             <div class="col-md-6">
-                <img alt="main-donner" src="../front/logotest.PNG">
+                <img style="margin-left: 80px;" alt="main-donner" src="{{ asset ('images/logo/logotest.png') }}">
             </div>
         </div>
     </div>

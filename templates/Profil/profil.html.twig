@@ -1,79 +1,64 @@
 {% extends 'layout.html.twig' %}
+{% block content %}
 
 <div class="col-md-4 col-sm-12">
 
-
-    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-
         <h3 class="text-center">
-            Profil de {{ app.user.prenom }}
+            Profil de {{ app.user.nom }}
         </h3>
 
-        <h4 class="text-center">
-            {% if is_granted('ROLE_ADMIN') %}
-                Administrateur
-            {% else is_granted('ROLE_MEMBRE') %}
-                Membre
-            {% endif %}
-        </h4>
 
         <ul class="list-group">
 
-            {% if is_granted('ROLE_MEMBRE') %}
+
                 <li class="list-group-item">
-                    <a href="{{ path('annonce_new') }}">
+                    <a style="color: black;font-family: 'Comfortaa', cursive;" href="{{ path('annonce_new') }}">
                         Ajouter une annonce
                     </a>
                 </li>
-            {% endif %}
+
 
             <li class="list-group-item">
-                <a href="{{ path('security_deconnexion') }}">
+                <a style="color: black;font-family: 'Comfortaa', cursive;" href="{{ path('security_deconnexion') }}">
                     Déconnexion
                 </a>
             </li>
         </ul>
 
-    {% endif %}
+
 
     <!--tab popular-->
     <ul role="tablist" class="tab-popular">
-        <li class="active">
-            <a href="#tab1" role="tab" data-toggle="tab">
-                Les Nouvelles Annonces
-            </a>
+        <li class="active" >
+
+               <h3>Les Nouvelles Annonces</h3>
         </li>
     </ul>
-    <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="tab1">
-            <ul class="list-news-popular">
-                {% for annonce in annonces %}
-                    <li>
-                        <a href="{{ path('front_annonce', {
-                            'slug' : annonce.slug,
-                            'id' : annonce.id,
-                            'categorie' : annonce.categorie.slug
-                        }) }}">
-                            <img alt="{{ annonce.titre }}" src="{{ asset('images/product/' ~ annonce.featuredImage) }}">
-                        </a>
-                        <h3><a href="{{ path('annonce', {
-                                'slug' : annonce.slug,
-                                'id' : annonce.id,
-                                'categorie' : annonce.categorie.slug
-                            }) }}">{{ annonce.titre }}</a></h3>
-                        <div class="meta-post">
-                            <a href="#">
-                                {{ annonce.membre.prenom ~ ' ' ~ annonce.membre.nom }}
-                            </a>
-                            <em></em>
-                            <span>
-							    {{ annonce.dateCreation | date('d/m/Y') }}
-                            </span>
-                        </div>
-                    </li>
-                {% endfor %}
-            </ul>
+    <div class="list-news-cate">
+    {% for annonce in annonces  %}
+        <article class="news-cate-item">
+            <div class="row">
+                <div class="col-md-5 col-sm-5 col-xs-12">
+                    <h3>
+                        {{annonce.categorie.slug}}
+                        {{annonce.slug }}
+                    </h3>
+                        <img alt="{{ annonce.titre }}"
+                             src="{{ asset('images/product/' ~ annonce.featuredImage) }}">
 
-        </div>
+                </div>
+                <div class="meta-post">
+                    <a href="#">
+                        {{ annonce.membre.prenom ~ ' ' ~ annonce.membre.nom }}
+                    </a>
+                    <em></em>
+                    <span>
+                             {{ annonce.dateCreation | date('d/m/Y') }}
+                    </span>
+                </div>
+            </div>
+        </article>
+    {% endfor %}
     </div>
 </div>
+{% endblock %}

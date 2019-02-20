@@ -1,5 +1,8 @@
 {% extends "base.html.twig" %}
 
+{% set categories = categorie_service.findAll() %}
+{% set annonces =  annonce_service.findAll() %}
+
 {% block stylesheets %}
     <link rel="icon" href="{{ asset('img/favicon.png') }}" type="image/png">
     <link rel="stylesheet" href="{{ asset('https://use.fontawesome.com/releases/v5.7.2/css/all.css') }}">

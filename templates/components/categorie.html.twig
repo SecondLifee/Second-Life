@@ -1,3 +1,4 @@
+
 <header class="header_area">
     <div class="top_menu">
         <div class="container">
@@ -16,7 +17,7 @@
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <a class="navbar-brand logo_h" href="index.html"><img style="height: 50px;" src="img/testa  .png" alt=""></a>
+                <a class="navbar-brand logo_h" href="index.html"><img style="height: 50px;" src="{{ asset ('images/logo/testa.png') }}" alt=""></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -25,17 +26,16 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                     <ul style="background-color:#FABA00;"  class="nav navbar-nav menu_nav ml-auto">
-                        <li class="nav-item active"><a class="nav-link" href="" style="color: black;margin-left: 15px;font-family: 'Comfortaa', cursive;">Acceuil</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="{{ path('index_home') }}" style="color: black;margin-left: 15px;font-family: 'Comfortaa', cursive;">Accueil</a></li>
                         <li class="nav-item"><a class="nav-link" href="about-us.html"></a></li>
                         <li class="nav-item submenu dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: black;font-family: 'Comfortaa', cursive;">Catégories</a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a style="color: black;font-family: 'Comfortaa', cursive;" class="nav-link" href="projects.html">Mobilier</a></li>
-                                <li class="nav-item"><a style="color: black;font-family: 'Comfortaa', cursive;" class="nav-link" href="project-details.html">Vehicule</a></li>
-                                <li class="nav-item"><a style="color: black;font-family: 'Comfortaa', cursive;" class="nav-link" href="elements.html">Electromenager</a></li>
-                                <li class="nav-item"><a style="color: black;font-family: 'Comfortaa', cursive;" class="nav-link" href="projects.html">Loisir</a></li>
-                                <li class="nav-item"><a style="color: black;font-family: 'Comfortaa', cursive;" class="nav-link" href="project-details.html">Multimedia</a></li>
-                                <li class="nav-item"><a style="color: black;font-family: 'Comfortaa', cursive;" class="nav-link" href="elements.html">Divers</a></li>
+                                 {% for categorie in categories %}
+                                <li class="nav-item"><a style="color: black;font-family: 'Comfortaa', cursive;" class="nav-link" href="{{ path('categorie_home', {
+                                        'slug' : categorie.slug
+                                    }) }}">{{ categorie.nom }}</a></li>
+                                  {% endfor %}
                             </ul>
                         </li>
                         <li class="nav-item submenu dropdown">
@@ -43,7 +43,7 @@
                         </li>
                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                         <li class="nav-item"><a style="color: black;font-family: 'Comfortaa', cursive;" class="nav-link" href="{{ path('annonce_new') }}">Publier une annonce</a></li>
-                            <li class="nav-item"><a style="color: black;font-family: 'Comfortaa', cursive;margin-right: 10px;color: white;font-size: 15px;" class="nav-link" href="{{ path('membre_inscription') }}">Bonjour {{ app.user.prenom }}</a></li>
+                                <li class="nav-item"><a style="color: black;font-family: 'Comfortaa', cursive;margin-right: 10px;color: white;font-size: 15px;" class="nav-link" href="{{ path('membre_inscription') }}">Bonjour {{ app.user.prenom }}</a></li>
                             <li class="nav-item"><a style="color: black;font-family: 'Comfortaa', cursive;margin-right: 10px;color: white;" class="nav-link" href="{{ path('security_deconnexion') }}">Deconnexion</a></li>
 
 

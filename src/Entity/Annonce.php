@@ -47,13 +47,13 @@ class Annonce
     private $dateCreation;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Categorie", inversedBy="annonce")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Categorie", inversedBy="annonces")
      * @ORM\JoinColumn(nullable=false)
      */
     private $categorie;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Membre", inversedBy="annonce")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Membre", inversedBy="annonces")
      * @ORM\JoinColumn(nullable=false)
      */
 

@@ -32,28 +32,28 @@ class Categorie
      */
 
 
-    private $annonce;
+    private $annonces;
 
     public function __construct()
     {
-        $this->annonce = new ArrayCollection();
+        $this->annonces = new ArrayCollection();
     }
 
 
     /**
      * @return mixed
      */
-    public function getAnnonce()
+    public function getAnnonces()
     {
-        return $this->annonce;
+        return $this->annonces;
     }
 
     /**
-     * @param mixed $annonce
+     * @param mixed $annonces
      */
-    public function setAnnonce($annonce): void
+    public function setAnnonces($annonces): void
     {
-        $this->annonce = $annonce;
+        $this->annonces = $annonces;
     }
 
     public function getId(): ?int

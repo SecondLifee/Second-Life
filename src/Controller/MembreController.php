@@ -22,34 +22,27 @@ class MembreController extends AbstractController
     public function inscription(Request $request, UserPasswordEncoderInterface $encoder)
     {
 
-        # Création d'un Membre
         $membre = new Membre();
         $membre->setRole(['ROLE_MEMBRE']);
 
 
-        # Création du Formulaire
         $form = $this->createForm(MembreFormType::class, $membre)
             ->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
-
-            #Encodage Mot De Passe
             $membre->setPassword(
                 $encoder->encodePassword($membre, $membre->getPassword())
             );
 
 
-            # Sauvegarde en BDD
             $em = $this->getDoctrine()->getManager();
             $em->persist($membre);
             $em->flush();
 
-            # Notification
+
             $this->addFlash('notice',
                 'Félicitation, vous pouvez vous connecter !');
 
-            # Redirection
-            #return $this->redirectToRoute('annonce.html.twig');
 
         }
 

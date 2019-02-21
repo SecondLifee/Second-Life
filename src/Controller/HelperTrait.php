@@ -24,4 +24,5 @@ trait HelperTrait
     {
         return Transliterator::transliterate($text);
     }
+
 }

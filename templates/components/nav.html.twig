@@ -1,0 +1,55 @@
+ <div class="main_menu" id="mainNav">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <a class="navbar-brand logo_h" href="index.html"><img style="height: 50px;" src="{{ asset ('images/logo/testa.png') }}" alt=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                    <ul style="background-color:#FABA00;"  class="nav navbar-nav menu_nav ml-auto">
+                        <li class="nav-item active"><a class="nav-link" href="{{ path('index_home') }}" style="color: black;margin-left: 15px;font-family: 'Comfortaa', cursive;">Accueil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about-us.html"></a></li>
+                        <li class="nav-item submenu dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: black;font-family: 'Comfortaa', cursive;">Catégories</a>
+                            <ul class="dropdown-menu">
+                                {% for categorie in categories %}
+                                    <li class="nav-item"><a style="color: black;font-family: 'Comfortaa', cursive;" class="nav-link" href="{{ path('categorie_home', {
+                                            'slug' : categorie.slug
+                                        }) }}">{{ categorie.nom }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li class="nav-item submenu dropdown">
+                        </li>
+                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                            <li class="nav-item"><a style="color: black;font-family: 'Comfortaa', cursive;margin-right: 10px;color: white;font-size: 15px;" class="nav-link" href="{{ path('profil') }}">Bonjour {{ app.user.prenom }}</a></li>
+                            <li class="nav-item submenu dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: black;font-family: 'Comfortaa', cursive;">Gestion des annonces</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item"><a style="color: black;font-family: 'Comfortaa', cursive;" class="nav-link" href="{{ path('annonce_new') }}">Créer votre annonce</a></li>
+                                    <li class="nav-item"><a style="color: black;font-family: 'Comfortaa', cursive;" class="nav-link" href="">Modifier votre annonce</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item"><a style="color: black;font-family: 'Comfortaa', cursive;margin-right: 10px;color: white;" class="nav-link" href="{{ path('security_deconnexion') }}">Deconnexion</a></li>
+
+
+
+                        {% else %}
+                            <li class="nav-item"><a style="color: black;font-family: 'Comfortaa', cursive;color: white;" class="nav-link" href="{{ path('connexion_connexion') }}">Connexion</a></li>
+                            <li class="nav-item"><a style="color: black;font-family: 'Comfortaa', cursive;margin-right: 10px;color: white;" class="nav-link" href="{{ path('membre_inscription') }}">Inscription</a></li>
+
+
+
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <hr color="#FABA00">
+    </div>
+</header>

@@ -1,23 +1,11 @@
 
 <header class="header_area">
-    <div class="top_menu">
-        <div class="container">
-                <div class="float-right">
-                    <ul class="list header_socila">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <div class="main_menu" id="mainNav">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <a class="navbar-brand logo_h" href="index.html"><img style="height: 50px;" src="{{ asset ('images/logo/testa.png') }}" alt=""></a>
+                <a class="navbar-brand logo_h" href="index.html"><img src="{{ asset ('images/logo/testo.png') }}" alt="logo SecondLife" id="testo"></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -25,34 +13,35 @@
                 </button>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-                    <ul style="background-color:#FABA00;"  class="nav navbar-nav menu_nav ml-auto">
-                        <li class="nav-item active"><a class="nav-link" href="{{ path('index_home') }}" style="color: black;margin-left: 15px;font-family: 'Comfortaa', cursive;">Accueil</a></li>
+                    <ul  class="nav navbar-nav menu_nav ml-auto" id="navbar">
+                        <li class="nav-item active"><a class="nav-link" href="{{ path('index_home') }}" id="accueil">Accueil</a></li>
                         <li class="nav-item"><a class="nav-link" href="about-us.html"></a></li>
                         <li class="nav-item submenu dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: black;font-family: 'Comfortaa', cursive;">Catégories</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="categorie">Catégories</a>
                             <ul class="dropdown-menu">
-                                 {% for categorie in categories %}
-                                <li class="nav-item"><a style="color: black;font-family: 'Comfortaa', cursive;" class="nav-link" href="{{ path('categorie_home', {
-                                        'slug' : categorie.slug
-                                    }) }}">{{ categorie.nom }}</a></li>
-                                  {% endfor %}
+                                {% for categorie in categories %}
+                                    <li class="nav-item"><a  class="nav-link" id="categories" href="{{ path('categorie_home', {
+                                            'slug' : categorie.slug
+                                        }) }}">{{ categorie.nom }}</a></li>
+                                {% endfor %}
                             </ul>
                         </li>
-                        <li class="nav-item submenu dropdown">
-                            <a style="color: black;font-family: 'Comfortaa', cursive;" href="" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profil</a>
-                        </li>
                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                        <li class="nav-item"><a style="color: black;font-family: 'Comfortaa', cursive;" class="nav-link" href="{{ path('annonce_new') }}">Publier une annonce</a></li>
-                                <li class="nav-item"><a style="color: black;font-family: 'Comfortaa', cursive;margin-right: 10px;color: white;font-size: 15px;" class="nav-link" href="{{ path('membre_inscription') }}">Bonjour {{ app.user.prenom }}</a></li>
-                            <li class="nav-item"><a style="color: black;font-family: 'Comfortaa', cursive;margin-right: 10px;color: white;" class="nav-link" href="{{ path('security_deconnexion') }}">Deconnexion</a></li>
+                            <li class="nav-item"><a class="nav-link" id="bonjour" href="{{ path('profil') }}">Bonjour {{ app.user.prenom }}</a></li>
 
+                            <li class="nav-item submenu dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="gestion">Gestion des annonces</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item"><a style="color: black;font-family: 'Comfortaa', cursive;" class="nav-link" href="{{ path('annonce_new') }}">Créer votre annonce</a></li>
+                                    </ul>
+                            </li>
+
+                            <li class="nav-item"><a  class="nav-link" id="deconnexion" href="{{ path('security_deconnexion') }}">Deconnexion</a></li>
 
 
                         {% else %}
-                        <li class="nav-item"><a style="color: black;font-family: 'Comfortaa', cursive;color: white;" class="nav-link" href="{{ path('connexion_connexion') }}">Connexion</a></li>
-                        <li class="nav-item"><a style="color: black;font-family: 'Comfortaa', cursive;margin-right: 10px;color: white;" class="nav-link" href="{{ path('membre_inscription') }}">Inscription</a></li>
-
-
+                            <li class="nav-item"><a class="nav-link" id="connexion" href="{{ path('connexion_connexion') }}">Connexion</a></li>
+                            <li class="nav-item"><a class="nav-link" id="inscription" href="{{ path('membre_inscription') }}">Inscription</a></li>
 
                         {% endif %}
                     </ul>
@@ -68,15 +57,18 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="banner_content">
-                        <h2 style="font-family: 'Space Mono', monospace;letter-spacing: 7px;color: black">Recycler vaut mieux que jeter <img style="height: 40px;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Octicons-sync.svg/220px-Octicons-sync.svg.png">  <br> <span style="font-size: 15px;letter-spacing: normal;margin-top: 10px;">Revendez, Negocier, Donner tout vos objets usager !</span></h2>
+                        <h2 id="recycler">Recycler vaut mieux que jeter <i style="color: green;" class="fas fa-sync fa-spin"></i>  <br> <span id="revendez">Revendez, Negocier, Donner tout vos objets usager !</span></h2>
                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                        <a style="color: black;" class="banner_btn" href="{{ path('annonce_new') }}">Crée votre annonce !</a>
+                            <li class="nav-item">Gestion Annonce
+                            <a class="banner_btn" id="creer" href="{{ path('annonce_new') }}">Créer votre annonce !</a>
+
+                            </li>
                         {% else %}
-                        <a style="color: black;" class="banner_btn" href="{{ path('connexion_connexion') }}">Connectez vous !</a>
-                        <a style="color: black;" class="banner_btn" href="{{ path('membre_inscription') }}">Inscrivez-vous !</a>
+                            <a class="banner_btn" id="connecter" href="{{ path('connexion_connexion') }}">Connectez vous !</a>
+                            <a class="banner_btn" id="inscriver" href="{{ path('membre_inscription') }}">Inscrivez-vous !</a>
 
                         {% endif %}
-
+                        {% include 'components/map.html.twig' %}
                     </div>
                 </div>
                 <div style="color: black" class="col-lg-4">

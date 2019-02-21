@@ -22,8 +22,7 @@
     <link rel="stylesheet" href="{{ asset('vendors/lightbox/simpleLightbox.css') }}">
     <link rel="stylesheet" href="{{ asset ('vendors/animate-css/animate.css') }}">
     <link rel="stylesheet" href="{{ asset ('vendors/animate-css/animate.css') }}">
-    <link rel="stylesheet" href="{{ asset ('vendors/flaticon/flaticon.css') }}">
-    <!-- main css -->
+    <link rel="stylesheet" href="{{ asset ('vendors/flaticon/flaticon.css') }}">    <!-- main css -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" />
@@ -65,8 +64,23 @@
     <script src="{{ asset('js/mail-script.js') }}"></script>
     <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
 
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+
     <script>
         var carte = L.map('mapid').setView([48.990181, 1.912178], 10);
+
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(carte);
+
+        var influence = L.circle([48.990181, 1.912178], 5000, {
+            'color': '#FF7F00',
+            'fill': true,
+            'fillColor': '#FFFF00',
+            'fillOpacity': 0.2,
+        }).addTo(carte);
+
+    </script>
 
         L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

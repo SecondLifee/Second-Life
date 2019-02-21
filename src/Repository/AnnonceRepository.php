@@ -18,14 +18,4 @@ class AnnonceRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Annonce::class);
     }
-
-    public function findLatest()
-    {
-        return $this->createQueryBuilder('a')
-            ->orderBy('a.id', 'DESC')
-            ->setMaxResults(5)
-            ->getQuery()
-            ->getResult()
-            ;
-    }
 }

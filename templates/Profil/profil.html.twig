@@ -8,25 +8,6 @@
         </h3>
 
 
-        <ul class="list-group">
-
-
-                <li class="list-group-item">
-                    <a style="color: black;font-family: 'Comfortaa', cursive;" href="{{ path('annonce_new') }}">
-                        Ajouter une annonce
-                    </a>
-                </li>
-
-
-            <li class="list-group-item">
-                <a style="color: black;font-family: 'Comfortaa', cursive;" href="{{ path('security_deconnexion') }}">
-                    Déconnexion
-                </a>
-            </li>
-        </ul>
-
-
-
     <!--tab popular-->
     <ul role="tablist" class="tab-popular">
         <li class="active" >
@@ -35,7 +16,7 @@
         </li>
     </ul>
     <div class="list-news-cate">
-    {% for annonce in annonces  %}
+    {% for annonce in anns  %}
         <article class="news-cate-item">
             <div class="row">
                 <div class="col-md-5 col-sm-5 col-xs-12">
@@ -45,7 +26,6 @@
                     </h3>
                         <img alt="{{ annonce.titre }}"
                              src="{{ asset('images/product/' ~ annonce.featuredImage) }}">
-
                 </div>
                 <div class="meta-post">
                     <a href="#">

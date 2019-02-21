@@ -4,7 +4,7 @@
 {% set annonces =  annonce_service.findAll() %}
 
 {% block stylesheets %}
-    <link rel="icon" href="{{ asset('img/favicon.png') }}" type="image/png">
+    <link rel="icon" href="{{ asset('images/logo/logov2.png') }}">
     <link rel="stylesheet" href="{{ asset('https://use.fontawesome.com/releases/v5.7.2/css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('https://fonts.googleapis.com/css?family=Zilla+Slab') }}">
     <link rel="stylesheet" href="{{ asset('https://fonts.googleapis.com/css?family=Bungee+Shade') }}">
@@ -27,7 +27,11 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" />
 
+    <style>
+        #mapid { height: 200px; width: 600px; position: relative; top: 40px; left: 40px;}
+    </style>
 
 
 
@@ -36,12 +40,11 @@
 <div class="loader" id="page-loader">
     <div class="loading-wrapper"></div>
 </div>
-{% include 'components/categorie.html.twig' %}
+    {% include 'components/nav.html.twig' %}
 
     {% block content '' %}
 
     {% include 'components/footer.html.twig' %}
-
 
 {% endblock %}
 
@@ -59,4 +62,21 @@
     <script src="{{ asset('vendors/counter-up/jquery.waypoints.min.js') }}"></script>
     <script src="{{ asset('vendors/counter-up/jquery.counterup.min.js') }}"></script>
     <script src="{{ asset('js/mail-script.js') }}"></script>
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+
+    <script>
+        var carte = L.map('mapid').setView([48.990181, 1.912178], 10);
+
+        L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(carte);
+
+        var influence = L.circle([48.990181, 1.912178], 5000, {
+            'color': '#FF7F00',
+            'fill': true,
+            'fillColor': '#FFFF00',
+            'fillOpacity': 0.2,
+        }).addTo(carte);
+
+    </script>
 {% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+
+    <div class="col-md-4 col-sm-12">
+
+        <h3 class="text-center">
+            Profil de {{ app.user.nom }}
+        </h3>
+
+
+        <!--tab popular-->
+        <ul role="tablist" class="tab-popular">
+            <li class="active" >
+
+                <h3>Les Nouvelles Annonces</h3>
+            </li>
+        </ul>
+        <div class="list-news-cate">
+            {% for annonce in annonces  %}
+                <article class="news-cate-item">
+                    <div class="row">
+                        <div class="col-md-5 col-sm-5 col-xs-12">
+                            <h3>
+                                {{annonce.categorie.slug}}
+                                {{annonce.slug }}
+                            </h3>
+                            <img alt="{{ annonce.titre }}"
+                                 src="{{ asset('images/product/' ~ annonce.featuredImage) }}">
+
+                        </div>
+                        <div class="meta-post">
+                            <a href="#">
+                                {{ annonce.membre.prenom ~ ' ' ~ annonce.membre.nom }}
+                            </a>
+                            <em></em>
+                            <span>
+                             {{ annonce.dateCreation | date('d/m/Y') }}
+                    </span>
+                        </div>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

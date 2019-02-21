@@ -59,6 +59,16 @@ class Annonce
 
     private $membre;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $services;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $departement;
+
     public function __construct()
     {
         $this->dateCreation = new \DateTime();
@@ -170,6 +180,30 @@ class Annonce
     public function setDateCreation(\DateTimeInterface $dateCreation): self
     {
         $this->dateCreation = $dateCreation;
+
+        return $this;
+    }
+
+    public function getServices(): ?string
+    {
+        return $this->services;
+    }
+
+    public function setServices(string $services): self
+    {
+        $this->services = $services;
+
+        return $this;
+    }
+
+    public function getDepartement(): ?string
+    {
+        return $this->departement;
+    }
+
+    public function setDepartement(string $departement): self
+    {
+        $this->departement = $departement;
 
         return $this;
     }

@@ -104,6 +104,68 @@ button:focus {
 .white_bg {
   background: #fff !important; }
 
+/* Modification Perso du Theme css
+============================================================================================ */
+/*Page Categorie.html.twig
+/*----------------------------------------------------*/
+#testo{
+  height: 50px;
+}
+
+#navbar{
+  background-color:#FABA00;
+}
+
+#accueil, #categorie, #deconnexion{
+  color: black;
+  margin-left: 15px;
+  font-family: 'Comfortaa', cursive;
+
+}
+
+#categories, #gestion{
+  color: black;
+  font-family: 'Comfortaa', cursive;
+}
+
+#bonjour{
+  font-family: 'Comfortaa', cursive;
+  margin-right: 10px;
+  color: white;
+  font-size: 15px;
+}
+
+#connexion, #inscription{
+  color: black;
+  font-family: 'Comfortaa', cursive;
+}
+
+#recycler{
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 7px;
+  color: black;
+}
+
+#revendez{
+
+font-size:15px !important;
+letter-spacing: normal !important;
+ margin-top: 10px !important;
+  color: black !important;;
+
+}
+
+#creer{
+  color: black;
+  font-size: 13px;
+}
+
+#connecter, #inscriver{
+  color: black;
+}
+
+
+
 /* Main Title Area css
 ============================================================================================ */
 .main_title {

@@ -78,17 +78,17 @@ class Membre implements UserInterface
     /**
      * @return mixed
      */
-    public function getAnnonce()
+    public function getAnnonces()
     {
-        return $this->annonce;
+        return $this->annonces;
     }
 
     /**
      * @param mixed $annonce
      */
-    public function setAnnonce($annonce): void
+    public function setAnnonces($annonces): void
     {
-        $this->annonce = $annonce;
+        $this->annonces = $annonces;
     }
 
 

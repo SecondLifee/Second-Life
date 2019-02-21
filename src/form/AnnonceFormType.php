@@ -44,7 +44,6 @@ class AnnonceFormType extends AbstractType
                     'class' => 'dropify'
                 ]
             ])
-
             ->add('services',ChoiceType::class, [
                 'choices' => [
                     'Negocier' => 'Negocier',
@@ -58,7 +57,6 @@ class AnnonceFormType extends AbstractType
             ->add('departement',TextType::class, [
                 'label' => "Département"
             ])
-
             ->add('spotlight', CheckboxType::class, [
                 'required' => false,
                 'attr' => [

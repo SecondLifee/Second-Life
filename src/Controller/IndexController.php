@@ -31,7 +31,7 @@ class IndexController extends AbstractController
     public function categorie(Categorie $categorie)
     {
         $annonces = $categorie->getAnnonces();
-        return $this->render('front/impo.html.twig', [
+        return $this->render('front/pagecate.html.twig', [
             'anns' => $annonces,
             'categorie' => $categorie
         ]);

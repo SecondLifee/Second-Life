@@ -1,0 +1,51 @@
+easy_admin:
+
+  user:
+    name_property_path: 'prenom'
+    avatar_property_path: 'gravatar'
+
+  site_name: '<em style="font-size: 80%;">Second<i>Life</i>Admin</em>'
+  design:
+    brand_color: '#FABA00'
+    assets:
+      css: ['css/custom_backend.css']
+  entities:
+    # Nom de la classe d'entité que nous souhaitons gérer.
+    Annonce:
+      class: App\Entity\Annonce
+      image_base_path: '/images/product'
+      form:  # <-- 'form' is applied to both 'new' and 'edit' views
+        fields:
+          - 'id'
+          - { property: 'titre', type: 'text', label: 'Titre' }
+          - { property: 'contenu', type: 'text', label: 'Contenu' }
+          - { property: 'featuredImage', type: 'text', label: 'Image' }
+          - { property: 'departement', type: 'text', label: 'Departement' }
+          - { property: 'services', type: 'text', label: 'Services' }
+          - { property: 'prix', type: 'text', label: 'Prix  ' }
+
+
+
+
+    Categorie:
+      class: App\Entity\Categorie
+      form:
+        fields:
+          - 'id'
+          - { property: 'nom', type: 'text', label: 'Nom' }
+          - { property: 'slug', type: 'text', label: 'Slug' }
+
+    membre:
+      class: App\Entity\Membre
+      list:
+        # si l'ordre de tri n'est pas spécifié, 'DESC' est utilisé
+        sort: 'dateInscription'
+      search:
+        # on utilise un tableau pour définir également le sens du tri
+        sort: ['dateInscription', 'ASC']
+      form:  # <-- 'form' is applied to both 'new' and 'edit' views
+        fields:
+          - 'id'
+          - { property: 'prenom', type: 'text', label: 'Prénom' }
+          - { property: 'nom', type: 'text', label: 'Nom' }
+          - { property: 'email', type: 'email', label: 'Email' }

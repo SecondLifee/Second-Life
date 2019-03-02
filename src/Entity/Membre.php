@@ -66,11 +66,17 @@ class Membre implements UserInterface
      * @ORM\OneToMany(targetEntity="App\Entity\Annonce",mappedBy="membre")
      */
 
-    private $annonces;
+    private $annonce;
+    
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $telephones;
 
     public function __construct()
     {
-        $this->annonces = new ArrayCollection();
+        $this->annonce = new ArrayCollection();
         $this->dateInscription = new \DateTime();
 
     }
@@ -182,6 +188,19 @@ class Membre implements UserInterface
 
     public function eraseCredentials()
     {
+    }
+
+
+    public function getTelephones(): ?string
+    {
+        return $this->telephones;
+    }
+
+    public function setTelephones(string $telephones): self
+    {
+        $this->telephones = $telephones;
+
+        return $this;
     }
 
 

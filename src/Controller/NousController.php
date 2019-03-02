@@ -3,19 +3,24 @@
 namespace App\Controller;
 
 
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ProfilController extends AbstractController
+class NousController extends AbstractController
 {
     /**
-     * @Route("/profil", name="profil")
+     * @Route("/nous", name="propos_nous")
      * @return Response
      */
 
-    public function profil()
+    public function us()
     {
-        return $this->render('Profil/profil.html.twig');
+        return $this->render('front/nous.html.twig');
     }
+
+
+
 }
+

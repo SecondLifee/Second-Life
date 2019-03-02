@@ -15,24 +15,22 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class ConnexionController extends AbstractController
+
 {
     /**
      * @Route("/connexion", name="connexion_connexion")
      * @param AuthenticationUtils $authenticationUtils
      * @return \Symfony\Component\HttpFoundation\Response
      */
-
+# AuthenticationUtils permet de récupérer la fonction getLastUsername
     public function connexion(AuthenticationUtils $authenticationUtils)
     {
-    $form = $this->createForm(ConnecFormType::class, [
-'email' =>$authenticationUtils->getLastUsername()
-    ]);
-
-        $error = $authenticationUtils->getLastAuthenticationError();
-
+        # Récupération du formulaire
+        $form = $this->createForm(ConnecFormType::class, ['email' => $authenticationUtils->getLastUsername()
+        ]);
+ # On retourne à la vue le formulaire
         return $this->render('connexion/login.html.twig', [
             'form' => $form->createView(),
-            'error' => $error
         ]);
     }
 
@@ -40,6 +38,7 @@ class ConnexionController extends AbstractController
      * @Route("/deconnexion.html",
      *     name="security_deconnexion")
      */
+    #Deconnexion se trouve dans security.yaml avec le logout
     public function deconnexion()
     {
     }

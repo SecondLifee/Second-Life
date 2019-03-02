@@ -1,0 +1,91 @@
+
+{% extends "layout.html.twig" %}
+{% block title %}
+    {{ categorie.nom }}
+{% endblock %}
+
+{% block content %}
+    <style>
+        #container:hover{
+            border-color:#FABA00;
+        }
+        #img:hover{
+            border-color:#FABA00;
+        }
+    </style>
+    <h1 id="categonom">Catégorie {{ categorie.nom }}</h1>
+    <hr width="500" color="#FABA00">
+    {% for ann in anns %}
+    <div id="containere" class="container">
+        <div class="row">
+            <div class="col-xl-6"><img id="imgcate" src="{{ asset('images/product/' ~ ann.featuredImage) }}" class="img-fluid" alt="Placeholder image"></div>
+            <div class="col-xl-6">
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <span>Annonce Crée par {{ app.user.prenom }}</span>
+                {% endif %}
+                <h1 id="titrecate">{{ ann.titre }}</h1>
+
+                {% if ann.services == 'Negocier' %}
+                    <h3 id="prix">{{ ann.prix }} €    </h3>
+                {% endif %}
+                {% if ann.services == 'Vendre' %}
+                    <h3 id="prix">{{ ann.prix }} €    </h3>
+                {% endif %}
+                <hr color="#9fa7b5">
+                <div>{{ ann.contenu | raw }}</div>
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    {% if ann.services == 'Donner' %}
+                    <a id="service1" onclick="changeButtona()" class="btn btn-dark btn-lg" role="button">Récupérer</a>
+                    <a id="recupe" class="btn btn-dark btn-lg" role="button">Adresse mail : {{ app.user.email  }}<br> Téléphone : {{ app.user.telephones }}</a>
+                    {% endif %}
+                {% if ann.services == 'Negocier' %}
+                    <a id="service2" onclick="changeButtonb()" class="btn btn-dark btn-lg" role="button">Negocier avec le vendeur</a>
+                    <a id="testb" class="btn btn-dark btn-lg" role="button">Adresse mail : {{ app.user.email  }} <br> Téléphone : {{ app.user.telephones }}</a>
+                {% endif %}
+                {% if ann.services == 'Vendre' %}
+                    <a id="service3" onclick="changeButtonc()" class="btn btn-dark btn-lg" role="button">Acheter</a>
+                    <a id="testc" class="btn btn-dark btn-lg" role="button">Adresse mail : {{ app.user.email  }} <br> Téléphone : {{ app.user.telephones }}</a>
+
+
+                {% endif %}
+                    {% else %}
+
+
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+        <script>
+            function changeButtonc() {
+                var c = document.getElementById("testc");
+                if (c.style.display === "none") {
+                    c.style.display = "block";
+                } else {
+                    c.style.display = "none";
+                }
+            }
+
+            function changeButtonb() {
+                var b = document.getElementById("testb");
+                if (b.style.display === "none") {
+                    b.style.display = "block";
+                } else {
+                    b.style.display = "none";
+                }
+            }
+
+            function changeButtona() {
+                var y = document.getElementById("recupe");
+                if (y.style.display === "none") {
+                    y.style.display = "block";
+                } else {
+                    y.style.display = "none";
+                }
+            }
+
+
+        </script>
+        {% endfor %}
+
+{% endblock %}

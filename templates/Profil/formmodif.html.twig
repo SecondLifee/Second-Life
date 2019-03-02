@@ -1,0 +1,15 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-8 col-md-12">
+            <h2>Modification Membre</h2>
+            {{ form(form, {attr:{novalidate: 'novalidate'}}) }}
+        </div>
+        {% for message in app.flashes('info') %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

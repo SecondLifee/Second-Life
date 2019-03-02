@@ -4,20 +4,20 @@
             <div class="row">
                 <div class="col-lg-8">
                     <div class="banner_content">
-                        <h2 style="font-family: 'Space Mono', monospace;letter-spacing: 7px;color: black">Recycler vaut mieux que jeter <i class="fas fa-sync fa-spin"></i>  <br> <span style="font-size: 15px;letter-spacing: normal;margin-top: 10px;">Revendez, Negocier, Donner tout vos objets usager !</span></h2>
+                        <h2 id="recycler">Recycler vaut mieux que jeter <i class="fas fa-sync fa-spin"></i>  <br> <span id="revend">Revendez, Negocier, Donner tout vos objets usager !</span></h2>
                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                            <a style="color: black;" class="banner_btn" href="{{ path('annonce_new') }}">Crée votre annonce !</a>
+                            <a id="cree" class="banner_btn" href="{{ path('annonce_new') }}">Crée votre annonce !</a>
                         {% else %}
-                            <a style="color: black;" class="banner_btn" href="{{ path('connexion_connexion') }}">Connectez vous !</a>
-                            <a style="color: black;" class="banner_btn" href="{{ path('membre_inscription') }}">Inscrivez-vous !</a>
+                            <a id="connectez" class="banner_btn" href="{{ path('connexion_connexion') }}">Connectez vous !</a>
+                            <a id="inscrivez" class="banner_btn" href="{{ path('membre_inscription') }}">Inscrivez-vous !</a>
                         {% endif %}
                     </div>
                 </div>
-                <div style="color: black" class="col-lg-4">
-                    <div style="border-color: black;" class="home_right_box">
+                <div id="divcate" class="col-lg-4">
+                    <div id="box" class="home_right_box">
                         {% for categorie in categories %}
                             <div class="home_item">
-                                <a href="{{ path('categorie_home', {'slug' : categorie.slug}) }}" style="font-family: 'Comfortaa', cursive;font-size: 17px;color: black ">{{ categorie.nom }}</a>
+                                <a id="catenom" href="{{ path('categorie_home', {'slug' : categorie.slug}) }}">{{ categorie.nom }}</a>
                             </div>
                         {% endfor %}
                     </div>

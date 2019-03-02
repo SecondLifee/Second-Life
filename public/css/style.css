@@ -106,6 +106,585 @@ button:focus {
 
 /* Main Title Area css
 ============================================================================================ */
+/* Bann.html.twig
+============================================================================================ */
+#recycler
+{
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 7px;
+  color: black;
+}
+#cree
+{
+  color: black;
+}
+#connectez
+{
+  color: black;
+}
+
+#inscrivez
+{
+  color: black;
+}
+
+#divcate
+{
+  color: black;
+}
+#box
+{
+  border-color: black;
+}
+#catenom
+{
+  font-family: 'Comfortaa', cursive;
+  font-size: 17px;
+  color: black;
+}
+#revend
+{
+  font-size: 15px;
+  letter-spacing: normal;
+  margin-top: 10px;
+}
+
+#fas
+{
+  color: green;
+}
+
+#revendez
+{
+  font-size: 15px;
+}
+/* nav.html.twig
+============================================================================================ */
+
+#logophoto
+{
+  height: 50px;
+}
+
+#accueil
+{
+  color: black;
+  margin-left: 15px;
+  font-family: 'Comfortaa', cursive;
+}
+#menu
+{
+  color: black;
+  font-family: 'Comfortaa', cursive;"
+}
+#pageprofil
+{
+  color: black;
+  font-family: 'Comfortaa', cursive;
+  margin-right: 10px;
+  color: white;
+  font-size: 15px;
+}
+#gestionannonce
+{
+  color: black;
+  font-family: 'Comfortaa', cursive;
+}
+#creeann
+{
+  color: black;
+  font-family: 'Comfortaa', cursive;
+}
+#modifann
+{
+  color: black;
+  font-family: 'Comfortaa', cursive;
+}
+#deco
+{
+  font-family: 'Comfortaa', cursive;
+  margin-right: 10px;
+  color: white;
+}
+#loginav
+{
+  font-family: 'Comfortaa', cursive;
+  color: white;
+}
+
+#inscrnav
+{
+  font-family: 'Comfortaa', cursive;
+  margin-right: 10px;
+  color: white
+}
+
+#backul
+{
+  background-color:#FABA00;
+}
+
+/* accueil.html.twig
+============================================================================================ */
+
+#consiste
+{
+  font-family: 'Space Mono', monospace;
+  color: black;
+  text-align: center;
+  margin-top: 40px;
+  background-color: #FABA00;
+}
+
+#services
+{
+  color: black;
+  font-family: 'Comfortaa', cursive;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 50px;
+  margin-bottom: 90px;
+}
+#logomain
+{
+  margin-left: 100px;
+  height: 300px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+#divnegocier
+{
+  margin-top: 50px;
+}
+
+#negocier
+{
+  font-family: 'Space Mono', monospace;
+  color: black;
+  margin-top: 20px;
+  text-align: center;
+}
+#negoc2
+{
+  background-color: #FABA00;
+}
+
+#avec
+{
+  color: black;
+  font-family: 'Comfortaa', cursive;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 50px;
+}
+#divdonner
+{
+  margin-top: 50px;
+}
+#negologo
+{
+  height: 220px;
+}
+#divcoldonner
+{
+  margin-top: 50px;
+}
+#donner
+{
+  font-family: 'Space Mono', monospace;
+  color: black;
+  margin-top: 20px;
+  text-align: center;
+}
+#avecdonner
+{
+  color: black;
+  font-family: 'Comfortaa', cursive;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 50px;
+}
+#divender
+{
+  margin-top: 50px;
+}
+#vender
+{
+  font-family: 'Space Mono', monospace;
+  color: black;
+  margin-top: 20px;
+  text-align: center;
+}
+
+#venderspan
+{
+  background-color: #FABA00
+}
+
+#avecvender
+{
+  color: black;
+  font-family: 'Comfortaa', cursive;
+  text-align: center;
+  font-size: 16px;
+  margin-top: 50px;
+}
+#divcoldonner
+{
+  margin-top: 50px;
+}
+#logonego
+{
+  height: 220px;
+  margin-bottom: 40px;
+}
+
+#homeitem
+{
+}
+
+#home_cate
+{
+  font-family: 'Comfortaa', cursive;
+  font-size: 17px;
+  color: black;
+}
+
+#styhome
+{
+  border-color: black;
+}
+
+#modifprofil
+{
+  color: white;
+  font-family: 'Comfortaa', cursive;
+}
+
+#catenav
+{
+  font-family: 'Comfortaa', cursive;
+  color: black;
+}
+#modifann
+{
+  color: black;
+}
+
+/* pagecate.html.twig
+============================================================================================ */
+
+#categonom
+{
+  text-align: center;
+  font-size: 55px;
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 7px;
+  color: black;
+}
+#divcontainer
+{
+  margin-top: 60px;
+}
+
+#jumbotron
+{
+  background-color: #FABA00;
+}
+#anntitre
+{
+  text-align: center;
+  color: white;
+  font-family: 'Comfortaa', cursive;
+}
+
+#imgann
+{
+  max-height: 300px;
+  border-style: solid;
+  display: block;
+  margin-top: 25px;
+  margin-right: auto;
+  margin-left: auto;
+}
+#descri
+{
+  text-align: center;color: white;
+}
+#contenu
+{
+  text-align: center;
+  font-family: 'Comfortaa', cursive;
+  color: black;
+  margin-top: 40px;
+}
+#recup
+{
+  background-color: grey;
+  border-color: grey;
+  font-size: 18px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#nego
+{
+  background-color: grey;
+  border-color: grey;
+  font-size: 18px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#connecpagecate
+{
+  margin-right: 10px;background-color: grey;border-color: grey;font-size: 18px;
+}
+
+#inscripagecate
+{
+  margin-right: 10px;background-color: grey;border-color: grey;font-size: 18px;
+}
+
+#containere
+{
+  border-style: solid;
+  margin-bottom: 20px;
+}
+
+#imgcate
+{
+  margin-top: 20px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  height: 200px;
+  border-style: solid;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  width: 220px;
+}
+#titrecate
+{
+  color: black;
+}
+
+#prix
+{
+  color: #FABA00
+}
+
+#recupe
+{
+  display: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: white;
+  background-color: #FABA00;
+}
+#testb
+{
+  display: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: white;
+  background-color: #FABA00;
+}
+#testc
+{
+  display: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: white;
+  background-color: #FABA00;
+}
+
+#service1
+{
+  color: white
+}
+
+#service2
+{
+  color: white
+}
+
+#service3
+{
+  color: white
+}
+
+
+/* footer.html.twig
+============================================================================================ */
+
+
+#propos
+{
+  font-size: 25px;
+  text-align: center;
+  color: white;
+}
+
+
+/* nous.html.twig
+============================================================================================ */
+
+#trouver
+{
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 7px;
+  color: black;
+  font-size: 30px;
+  margin-bottom: 15px;
+}
+.container {
+  position: relative;
+
+  text-align: center;
+
+}
+
+#nom{
+
+  padding: 10%;
+  font-size: 75%;
+  text-align: center;
+}
+
+.card{
+
+  position: center;
+  width: 100%;
+  margin-bottom: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+
+}
+
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #008CBA;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;
+}
+
+#un:hover .overlay {
+  height: 100%;
+}
+#deux:hover .overlay {
+  height: 100%;
+}
+#trois:hover .overlay {
+  height: 100%;
+}
+
+.text {
+  color: white;
+  font-size: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+a{
+  color: white;
+}
+/* profil.html.twig
+============================================================================================ */
+
+#profilmodif
+{
+  color: #FABA00;
+}
+
+.card-body {
+  padding: 0;
+}
+
+.top-section {
+  height: 310px;
+  overflow: hidden;
+  background: #fff;
+  position: relative;
+}
+
+#image-container {
+  height: 150px;
+}
+
+
+.nav {
+  text-align: center;
+}
+
+.nav img {
+  width: 80px;
+  height: 50px;
+  border: 1px solid #ddd;
+  margin: 8px 2px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav img:hover {
+  border-color: #6ab04c;
+}
+
+.card-body {
+  padding: 24px;
+}
+
+.card-title {
+  text-transform: uppercase;
+  font-size: 24px;
+  color: #333;
+}
+
+.card-text {
+  font-size: 16px;
+  opacity: 0.7;
+}
+
+.btn {
+  display: block;
+  text-align: center;
+  color: #fff;
+  padding: 10px;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #333;
+}
+
+#buttonmodif
+{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*============================================================================================ */
 .main_title {
   text-align: center;
   margin-bottom: 75px; }

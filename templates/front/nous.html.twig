@@ -1,0 +1,69 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <div class="card">
+                    <div id="nom">
+                        <h2>Mustapha</h2>
+                    </div>
+                    <div  id="un">
+                        <img src="{{ asset ('img/mouss.png') }}" alt="Avatar" class="image">
+                        <div class="overlay">
+                            <div class="text"><h4><b>Mustapha EL MIR</b></h4>
+                                <p>Front End / Back End</p>
+                                <p>Email : elmir.moustapha@wanadoo.fr</p>
+                                <a href="https://www.linkedin.com/in/el-mir-mustapha/" target="_blank">www.linkedin.com/in/el-mir-mustapha/</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-4">
+                <div class="card">
+                    <div id="nom">
+                        <h2>Guillaume</h2>
+                    </div>
+                    <div id="deux">
+                        <img src="{{ asset ('img/guigui.png') }}" alt="Avatar" class="image">
+                        <div class="overlay">
+                            <div class="text"><h4><b>Guillaume LEGOUT</b></h4>
+                                <p>Front End / Back End</p>
+                                <p>Email : guillaumelegout@gmail.com  </p>
+                                <p>https://www.linkedin.com/in/guillaume-legout/</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="card">
+                    <div id="nom">
+                        <h2>Maxime</h2>
+                    </div>
+                    <div id="trois">
+                        <img src="{{ asset ('img/max.png') }}" alt="Avatar" class="image">
+                        <div class="overlay">
+                            <div class="text"><h4><b>Maxime DESHAYES</b></h4>
+                                <p>Front End / Back End</p>
+                                <p>Email : maximedeshayes78@gmail.fr</p>
+                                <p>https://www.linkedin.com/in/maxime-deshayes/</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% include 'components/map.html.twig' %}
+
+{% endblock %}
+
+
+
+
+
+

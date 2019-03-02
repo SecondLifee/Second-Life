@@ -11,6 +11,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -57,15 +58,11 @@ class AnnonceFormType extends AbstractType
             ->add('departement',TextType::class, [
                 'label' => "Département"
             ])
-            ->add('spotlight', CheckboxType::class, [
-                'required' => false,
-                'attr' => [
-                    'data-toogle' => 'toogle',
-                    'data-on' => 'oui',
-                    'data-off' => 'non'
 
-                ]
+            ->add('prix',NumberType::class, [
+                'label' => 'Rentrez votre prix de base'
             ])
+
             ->add('submit', SubmitType::class, [
                 'label' => 'Publier mon Annonce'
             ])
